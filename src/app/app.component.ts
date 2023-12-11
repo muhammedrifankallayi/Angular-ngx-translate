@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SMA';
+
+constructor(public translate:TranslateService){
+  translate.addLangs(["en","nl","es","de"])
+  translate.setDefaultLang("en")
+}
+
+switchLanguage(lang:string){
+this.translate.use(lang)
+
+}
+
 }
